@@ -75,7 +75,7 @@ const getCatalogByIDWithProcess = async (req, res) => {
 
   try {
     const catalogo = await CatalogModel.getCatalogByID(CID);
-    if (catalogo.length === 0) {
+    if (!catalogo) {
       return res.status(400).json({
         msg: "No existe ese catalogo en la base de datos",
       });
